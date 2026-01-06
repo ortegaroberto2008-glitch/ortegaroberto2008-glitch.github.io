@@ -6,15 +6,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       min-height: 100vh;
-      background: linear-gradient(135deg, #1a1a1a, #000000);
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       color: white;
       display: flex;
       justify-content: center;
       align-items: center;
+      overflow: hidden;
+    }
+
+    /* ===== BACKGROUND VIDEO ===== */
+    .bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -2;
+    }
+
+    /* dark overlay */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.55);
+      z-index: -1;
     }
 
     .container {
@@ -22,7 +48,7 @@
       max-width: 380px;
       padding: 25px;
       text-align: center;
-      background: rgba(255,255,255,0.05);
+      background: rgba(255,255,255,0.08);
       border-radius: 20px;
       box-shadow: 0 15px 30px rgba(0,0,0,0.5);
       backdrop-filter: blur(10px);
@@ -76,7 +102,7 @@
     .footer {
       margin-top: 25px;
       font-size: 13px;
-      opacity: 0.7;
+      opacity: 0.75;
       letter-spacing: 0.5px;
     }
 
@@ -90,68 +116,63 @@
       font-weight: bold;
       cursor: pointer;
       box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    #playButton:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
     }
   </style>
 </head>
 
 <body>
+
+  <!-- Background Video -->
+  <video class="bg-video" autoplay muted loop playsinline>
+    <source src="bg.mp4" type="video/mp4">
+  </video>
+
+  <div class="overlay"></div>
+
   <div class="container">
 
-    <!-- Profile Picture -->
     <img src="profile.jpg" class="profile" alt="Profile Picture">
-
-    <!-- Name -->
     <h1>Buboy Tzyy</h1>
 
-    <!-- Links -->
     <a class="link" href="https://www.facebook.com/share/17tvK1tSSP/" target="_blank">
-      <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook Icon">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png">
       Facebook
     </a>
 
     <a class="link" href="https://www.tiktok.com/@buboytzyy" target="_blank">
-      <img src="https://cdn-icons-png.flaticon.com/512/3046/3046126.png" alt="TikTok Icon">
+      <img src="https://cdn-icons-png.flaticon.com/512/3046/3046126.png">
       TikTok
     </a>
 
-    <a class="link" href="https://www.instagram.com/_cxv.icebert?igsh=MW0xZGdrZjZ2eG93ZQ==" target="_blank">
-      <img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram Icon">
+    <a class="link" href="https://www.instagram.com/_cxv.icebert" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733558.png">
       Instagram
     </a>
 
     <div class="footer">
-      kapag friends lang friends lang okie
-      and btw im not always active on socia<:♥️🫶
+      kapag friends lang friends lang okie <br>
+      and btw im not always active on social and
+      i love coding ♥️🫶
     </div>
 
-    <!-- Play Music Button -->
     <button id="playButton">Play Music</button>
-
   </div>
 
-  <!-- Audio Element -->
   <audio id="bgMusic" loop>
     <source src="bgmusic.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
   </audio>
 
-  <!-- JS for Play Button -->
   <script>
-    const bgMusic = document.getElementById('bgMusic');
-    const playButton = document.getElementById('playButton');
+    const bgMusic = document.getElementById("bgMusic");
+    const playButton = document.getElementById("playButton");
 
-    playButton.addEventListener('click', () => {
+    playButton.addEventListener("click", () => {
       bgMusic.play();
-      playButton.style.display = 'none'; // hide button after playing
+      playButton.style.display = "none";
     });
 
-    bgMusic.volume = 0.3; // set volume
+    bgMusic.volume = 0.3;
   </script>
+
 </body>
 </html>
