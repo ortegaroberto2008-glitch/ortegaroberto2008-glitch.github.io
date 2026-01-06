@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Buboy Tzyy | Links</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #1a1a1a, #000000);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 380px;
+      padding: 25px;
+      text-align: center;
+      background: rgba(255,255,255,0.05);
+      border-radius: 20px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+      backdrop-filter: blur(10px);
+    }
+
+    .profile {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #ff69b4;
+      margin-bottom: 15px;
+      transition: transform 0.3s;
+    }
+
+    .profile:hover {
+      transform: scale(1.1);
+    }
+
+    h1 {
+      margin: 10px 0 25px;
+      font-size: 24px;
+      letter-spacing: 1px;
+    }
+
+    .link {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      background: linear-gradient(90deg, #ff69b4, #ff1493);
+      color: white;
+      padding: 14px;
+      border-radius: 15px;
+      margin-bottom: 15px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .link img {
+      width: 28px;
+      height: 28px;
+    }
+
+    .link:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.5);
+    }
+
+    .footer {
+      margin-top: 25px;
+      font-size: 13px;
+      opacity: 0.7;
+      letter-spacing: 0.5px;
+    }
+
+    #playButton {
+      margin-top: 20px;
+      padding: 10px 20px;
+      border-radius: 12px;
+      border: none;
+      background: linear-gradient(90deg, #ff69b4, #ff1493);
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    #playButton:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <!-- Profile Picture -->
+    <img src="profile.jpg" class="profile" alt="Profile Picture">
+
+    <!-- Name -->
+    <h1>Buboy Tzyy</h1>
+
+    <!-- Links -->
+    <a class="link" href="https://www.facebook.com/share/17tvK1tSSP/" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook Icon">
+      Facebook
+    </a>
+
+    <a class="link" href="https://www.tiktok.com/@buboytzyy" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/3046/3046126.png" alt="TikTok Icon">
+      TikTok
+    </a>
+
+    <a class="link" href="https://www.instagram.com/_cxv.icebert?igsh=MW0xZGdrZjZ2eG93ZQ==" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram Icon">
+      Instagram
+    </a>
+
+    <div class="footer">
+      kapag friends lang friends lang okie
+      and btw im not always active on socia<:♥️🫶
+    </div>
+
+    <!-- Play Music Button -->
+    <button id="playButton">Play Music</button>
+
+  </div>
+
+  <!-- Audio Element -->
+  <audio id="bgMusic" loop>
+    <source src="bgmusic.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- JS for Play Button -->
+  <script>
+    const bgMusic = document.getElementById('bgMusic');
+    const playButton = document.getElementById('playButton');
+
+    playButton.addEventListener('click', () => {
+      bgMusic.play();
+      playButton.style.display = 'none'; // hide button after playing
+    });
+
+    bgMusic.volume = 0.3; // set volume
+  </script>
+</body>
+</html>
