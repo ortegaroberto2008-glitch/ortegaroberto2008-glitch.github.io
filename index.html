@@ -284,110 +284,156 @@
       opacity: 0.7;
     }
 
-    /* FLOATING MUSIC BUTTON */
-    #musicBtn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 55px;
-      height: 55px;
-      border-radius: 50%;
-      border: none;
-      background: linear-gradient(135deg, #ff69b4, #ff1493);
-      color: white;
-      font-size: 22px;
-      cursor: pointer;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-      z-index: 999;
-    }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Buboy Tzyy | Links</title>
 
-    #musicBtn.playing {
-      animation: pulse 1.2s infinite;
-    }
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.15); }
-      100% { transform: scale(1); }
-    }
-  </style>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* BACKGROUND VIDEO */
+#bgVideo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100dvh;
+  object-fit: cover;
+  z-index: -2;
+}
+
+/* DARK OVERLAY */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100dvh;
+  background: rgba(0,0,0,0.55);
+  z-index: -1;
+}
+
+/* MAIN CONTAINER */
+.container {
+  width: 90%;
+  max-width: 380px;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+/* PROFILE */
+.profile img {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #ff4fa3;
+}
+
+.profile h2 {
+  margin: 12px 0 5px;
+}
+
+.profile p {
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+/* BUTTONS */
+.links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-decoration: none;
+  color: white;
+  background: linear-gradient(135deg, #ff4fa3, #ff0077);
+  padding: 14px;
+  border-radius: 12px;
+  margin-top: 12px;
+  font-weight: bold;
+}
+
+/* MUSIC BUTTON */
+.music-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #ff4fa3;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  cursor: pointer;
+}
+</style>
 </head>
 
 <body>
 
-  <!-- BACKGROUND VIDEO -->
-  <video id="bgVideo" autoplay muted loop playsinline>
-    <source src="bg.mp4" type="video/mp4">
-  </video>
+<!-- BACKGROUND VIDEO -->
+<video id="bgVideo" autoplay muted loop playsinline>
+  <source src="bg.mp4" type="video/mp4">
+</video>
 
-  <div class="overlay"></div>
+<div class="overlay"></div>
 
-  <!-- CONTENT -->
-  <div class="container">
-    <img src="profile.jpg" class="profile" alt="Profile Picture">
-
-    <h1>Buboy Tzyy</h1>
-
-    <a class="link" href="https://www.facebook.com/share/17tvK1tSSP/" target="_blank">
-      <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png">
-      Facebook
-    </a>
-
-    <a class="link" href="https://www.tiktok.com/@buboytzyy" target="_blank">
-      <img src="https://cdn-icons-png.flaticon.com/512/3046/3046126.png">
-      TikTok
-    </a>
-
-    <a class="link" href="https://www.instagram.com/_cxv.icebert" target="_blank">
-      <img src="https://cdn-icons-png.flaticon.com/512/733/733558.png">
-      Instagram
-    </a>
-
-    <div class="footer">
-      kapag friends lang friends lang okie 🫶
-    </div>
+<!-- CONTENT -->
+<div class="container">
+  <div class="profile">
+    <img src="profile.jpg">
+    <h2>Buboy Tzyy</h2>
+    <p>kapag friends lang friends lang okie <:😉🫶/p>
   </div>
 
-  <!-- MUSIC -->
-  <button id="musicBtn">🎵</button>
+  <div class="links">
+    <a href="https://facebook.com" target="_blank">Facebook</a>
+    <a href="https://tiktok.com" target="_blank">TikTok</a>
+    <a href="https://instagram.com" target="_blank">Instagram</a>
+  </div>
+</div>
 
-  <audio id="bgMusic" loop>
-    <source src="bgmusic.mp3" type="audio/mpeg">
-  </audio>
+<!-- MUSIC -->
+<audio id="music" src="music.mp3"></audio>
 
-  <script>
-    /* RIPPLE CLICK */
-    document.querySelectorAll('.link').forEach(link => {
-      link.addEventListener('click', function(e) {
-        const ripple = document.createElement('span');
-        ripple.style.position = 'absolute';
-        ripple.style.background = 'rgba(255,255,255,0.6)';
-        ripple.style.borderRadius = '50%';
-        ripple.style.width = ripple.style.height = '20px';
-        ripple.style.left = e.offsetX + 'px';
-        ripple.style.top = e.offsetY + 'px';
-        ripple.style.transform = 'translate(-50%, -50%)';
-        ripple.style.animation = 'ripple 0.6s linear';
-        this.appendChild(ripple);
-        setTimeout(() => ripple.remove(), 600);
-      });
-    });
+<div class="music-btn" onclick="toggleMusic()">🎵</div>
 
-    /* MUSIC BUTTON */
-    const music = document.getElementById("bgMusic");
-    const btn = document.getElementById("musicBtn");
-    music.volume = 0.3;
-
-    btn.addEventListener("click", () => {
-      if (music.paused) {
-        music.play();
-        btn.classList.add("playing");
-      } else {
-        music.pause();
-        btn.classList.remove("playing");
-      }
-    });
-  </script>
+<script>
+let playing = false;
+function toggleMusic() {
+  const music = document.getElementById("music");
+  if (!playing) {
+    music.play();
+    playing = true;
+  } else {
+    music.pause();
+    playing = false;
+  }
+}
+</script>
 
 </body>
 </html>
