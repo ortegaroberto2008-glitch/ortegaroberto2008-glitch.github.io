@@ -67,7 +67,8 @@
       border-radius: 50%;
       object-fit: cover;
 
-      border: 4px solid rgba(255, 105, 180, 0.85);
+      /* PINK → WHITE */
+      border: 4px solid rgba(255, 255, 255, 0.9);
 
       margin-bottom: 15px;
       transition: transform 0.3s;
@@ -89,15 +90,11 @@
       align-items: center;
       gap: 15px;
 
-      /* TRANSPARENT PINK */
-      background: linear-gradient(
-        90deg,
-        rgba(255, 105, 180, 0.45),
-        rgba(255, 20, 147, 0.45)
-      );
+      /* WHITE TRANSPARENT */
+      background: rgba(255, 255, 255, 0.25);
 
-      /* GLASS EFFECT */
-      border: 1px solid rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.45);
+
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
 
@@ -122,11 +119,8 @@
     .link:hover {
       transform: translateY(-3px);
 
-      background: linear-gradient(
-        90deg,
-        rgba(255, 105, 180, 0.60),
-        rgba(255, 20, 147, 0.60)
-      );
+      /* LIGHTER WHITE ON HOVER */
+      background: rgba(255, 255, 255, 0.38);
 
       box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
     }
@@ -145,23 +139,26 @@
       padding: 10px 20px;
 
       border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
 
-      /* TRANSPARENT PINK */
-      background: rgba(255, 20, 147, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.45);
+
+      /* WHITE TRANSPARENT */
+      background: rgba(255, 255, 255, 0.20);
 
       color: white;
       font-weight: bold;
       cursor: pointer;
 
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
 
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      transition: 0.2s;
     }
 
     #playButton:hover {
-      background: rgba(255, 20, 147, 0.55);
+      background: rgba(255, 255, 255, 0.35);
     }
   </style>
 </head>
@@ -181,6 +178,7 @@
 
     <h1>Buboy Tzyy</h1>
 
+    <!-- FACEBOOK -->
     <a class="link"
        href="https://www.facebook.com/share/17tvK1tSSP/"
        target="_blank">
@@ -188,6 +186,7 @@
       Facebook
     </a>
 
+    <!-- TIKTOK -->
     <a class="link"
        href="https://www.tiktok.com/@bertzxzzz?_r=1&_t=ZS-99nLYvzgjOm"
        target="_blank">
@@ -195,6 +194,7 @@
       TikTok
     </a>
 
+    <!-- INSTAGRAM -->
     <a class="link"
        href="https://www.instagram.com/icceeebert"
        target="_blank">
@@ -210,7 +210,8 @@
 
   </div>
 
-  <audio id="bgMusic" loop>
+  <!-- MUSIC - NO LOOP -->
+  <audio id="bgMusic">
     <source src="bgmusic.mp3" type="audio/mpeg">
   </audio>
 
@@ -218,12 +219,12 @@
     const bgMusic = document.getElementById("bgMusic");
     const playButton = document.getElementById("playButton");
 
+    bgMusic.volume = 0.3;
+
     playButton.addEventListener("click", () => {
       bgMusic.play();
       playButton.style.display = "none";
     });
-
-    bgMusic.volume = 0.3;
   </script>
 
 </body>
