@@ -107,9 +107,112 @@
       margin-bottom: 15px;
 
       text-decoration: none;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Buboy Tzyy | Links</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    /* ===== BACKGROUND VIDEO ===== */
+    .bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -2;
+    }
+
+    /* ===== DARK OVERLAY ===== */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.55);
+      z-index: -1;
+    }
+
+    /* ===== MAIN CONTAINER ===== */
+    .container {
+      width: 100%;
+      max-width: 380px;
+      padding: 25px;
+      text-align: center;
+
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 20px;
+
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    /* ===== PROFILE ===== */
+    .profile {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      object-fit: cover;
+
+      border: 4px solid rgba(255, 255, 255, 0.8);
+
+      margin-bottom: 15px;
+      transition: transform 0.3s;
+    }
+
+    .profile:hover {
+      transform: scale(1.05);
+    }
+
+    h1 {
+      margin: 10px 0 25px;
+      font-size: 24px;
+      letter-spacing: 1px;
+    }
+
+    /* ===== TRANSPARENT LINKS ===== */
+    .link {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+
+      background: rgba(255, 255, 255, 0.10);
+      border: 1px solid rgba(255, 255, 255, 0.20);
+
+      color: white;
+      padding: 14px;
+      border-radius: 15px;
+      margin-bottom: 15px;
+
+      text-decoration: none;
       font-weight: bold;
 
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
 
       transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
     }
@@ -122,11 +225,7 @@
     .link:hover {
       transform: translateY(-3px);
 
-      background: linear-gradient(
-        90deg,
-        rgba(255, 105, 180, 0.60),
-        rgba(255, 20, 147, 0.60)
-      );
+      background: rgba(255, 255, 255, 0.18);
 
       box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
     }
@@ -145,23 +244,24 @@
       padding: 10px 20px;
 
       border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.20);
 
-      /* TRANSPARENT PINK */
-      background: rgba(255, 20, 147, 0.35);
+      background: rgba(255, 255, 255, 0.10);
 
       color: white;
       font-weight: bold;
       cursor: pointer;
 
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
 
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      transition: 0.2s;
     }
 
     #playButton:hover {
-      background: rgba(255, 20, 147, 0.55);
+      background: rgba(255, 255, 255, 0.18);
     }
   </style>
 </head>
@@ -181,6 +281,7 @@
 
     <h1>Buboy Tzyy</h1>
 
+    <!-- FACEBOOK -->
     <a class="link"
        href="https://www.facebook.com/share/17tvK1tSSP/"
        target="_blank">
@@ -188,6 +289,7 @@
       Facebook
     </a>
 
+    <!-- TIKTOK -->
     <a class="link"
        href="https://www.tiktok.com/@bertzxzzz?_r=1&_t=ZS-99nLYvzgjOm"
        target="_blank">
@@ -195,6 +297,7 @@
       TikTok
     </a>
 
+    <!-- INSTAGRAM -->
     <a class="link"
        href="https://www.instagram.com/icceeebert"
        target="_blank">
@@ -203,13 +306,14 @@
     </a>
 
     <div class="footer">
-      Hiii poo! 🫶🤲
+      Hiii poo!🫶🤲 Restart IG
     </div>
 
     <button id="playButton">Laro Music</button>
 
   </div>
 
+  <!-- MUSIC -->
   <audio id="bgMusic">
     <source src="bgmusic.mp3" type="audio/mpeg">
   </audio>
@@ -218,12 +322,12 @@
     const bgMusic = document.getElementById("bgMusic");
     const playButton = document.getElementById("playButton");
 
+    bgMusic.volume = 0.3;
+
     playButton.addEventListener("click", () => {
       bgMusic.play();
       playButton.style.display = "none";
     });
-
-    bgMusic.volume = 0.3;
   </script>
 
 </body>
